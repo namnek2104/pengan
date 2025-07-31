@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Làm Bạn Gái Tuii Nhaa~~</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      overflow: hidden;
+      background: linear-gradient(135deg, #ffdde4 0%, #ffd6f6 100%);
+      position: relative;
+    }
+    #dolphin-bg {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .container {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      pointer-events: none;
+    }
+    .dolphin {
+      font-size: 70px;
+      display: block;
+      margin-top: 48px;
+      margin-bottom: 8px;
+      animation: nanni 2s infinite alternate;
+      pointer-events: none;
+    }
+    @keyframes nanni {
+      0% { transform: translateY(0) scale(1);}
+      100% { transform: translateY(12px) scale(1.05);}
+    }
+    .text-tinh {
+      font-family: 'Pacifico', cursive, sans-serif;
+      font-size: 3.2rem;
+      font-weight: normal;
+      letter-spacing: 2.5px;
+      padding: 22px 55px;
+      border-radius: 35px;
+      margin-bottom: 70px;
+      margin-top: 0;
+      background: linear-gradient(90deg, #2463eb 0%, #38bdf8 70%, #e0f2fe 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      text-fill-color: transparent;
+      border: 2.5px solid #38bdf866;
+      text-shadow:
+        0 0 2px #2a74e6,
+        0 0 10px #38bdf888,
+        0 2px 12px #38bdf866,
+        0 1px 0 #fff;
+      transition: font-size 0.3s;
+      animation: sloganMove 2.3s infinite alternate;
+      pointer-events: none;
+      position: relative;
+      z-index: 2;
+      display: inline-block;
+    }
+    @keyframes sloganMove {
+      0% {transform: scale(1) translateY(0) rotate(-2deg);}
+      100% {transform: scale(1.06) translateY(-7px) rotate(2deg);}
+    }
+    /* Hiệu ứng lấp lánh */
+    .sparkle {
+      position: absolute;
+      pointer-events: none;
+      color: #fff;
+      font-size: 1.3em;
+      opacity: 0.8;
+      animation: sparkle 1.3s linear infinite;
+      text-shadow:
+        0 0 6px #fff, 0 0 10px #60a5fa, 0 0 18px #bae6fd;
+    }
+    @keyframes sparkle {
+      0% { opacity: 0.8; transform: scale(0.9);}
+      45% { opacity: 1; transform: scale(1.22);}
+      100% { opacity: 0.7; transform: scale(0.9);}
+    }
+    .buttons-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 54px;
+      pointer-events: none;
+      position: relative;
+      z-index: 10;
+      margin-top: 0;
+      width: 100vw;
+      height: 70px;
+    }
+    .btn {
+      min-width: 110px;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: font-size 0.35s, left 0.2s, top 0.2s, transform 0.3s;
+      font-weight: bold;
+      box-shadow: 0 2px 10px #ff4b7d2c;
+      background: #fff0fa;
+      color: #2563eb;
+      user-select: none;
+      outline: none;
+      position: relative;
+      z-index: 10;
+      pointer-events: auto;
+      overflow: visible;
+    }
+    .btn-yes {
+      background: #fff0fa;
+      color: #2563eb;
+      box-shadow: 0 2px 10px #bae6fd;
+      transform: scale(1.2);
+      transition: transform 0.25s cubic-bezier(.53,1.4,.71,1.01), box-shadow 0.25s;
+    }
+    .btn-yes:hover {
+      transform: scale(1.33);
+      box-shadow: 0 8px 32px #60a5fa99;
+    }
+    .btn-no {
+      background: #fff8fb;
+      color: #64748b;
+      font-size: 1.2rem;
+      transform: scale(1.0);
+      transition: font-size 0.35s, left 0.2s, top 0.2s, transform 0.3s;
+      pointer-events: auto;
+    }
+    .hearts-float {
+      pointer-events: none;
+      position: absolute;
+      left: 50%; top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 30;
+      width: 0; height: 0;
+    }
+    .fly-ani {
+      position: absolute;
+      opacity: 0.92;
+      will-change: transform, opacity;
+      left: 0; top: 0;
+      pointer-events: none;
+      filter: drop-shadow(0 2px 4px #60a5fa88);
+      user-select: none;
+    }
+    /* Ảnh 1: sticker dưới trái */
+    .img-sticker-left {
+      position: fixed;
+      left: 6px;
+      bottom: 8px;
+      z-index: 20;
+      width: 165px;
+      max-width: 46vw;
+      pointer-events: none;
+      filter: drop-shadow(0 2px 7px #bae6fd77);
+      animation: sticker-bob 2.2s infinite alternate;
+      border-radius: 18px;
+      background:rgba(255,255,255,0.13);
+    }
+    @keyframes sticker-bob {
+      0% {transform: scale(1) translateY(0);}
+      100% {transform: scale(1.04) translateY(-13px);}
+    }
+    /* Ảnh 2: sticker trên phải */
+    .img-sticker-right {
+      position: fixed;
+      right: 12px;
+      top: 10px;
+      z-index: 18;
+      width: 135px;
+      max-width: 37vw;
+      pointer-events: none;
+      filter: drop-shadow(0 2px 7px #ffd6f6bb);
+      animation: sticker-bounce 2.4s infinite alternate;
+      border-radius: 18px;
+      background:rgba(255,255,255,0.11);
+    }
+    @keyframes sticker-bounce {
+      0% {transform: scale(1) rotate(-6deg);}
+      100% {transform: scale(1.08) rotate(8deg);}
+    }
+    @media (max-width: 600px) {
+      .text-tinh {
+        font-size: 1.4rem;
+        padding: 9px 6vw;
+      }
+      .buttons-row {
+        gap: 12vw;
+      }
+      .btn {
+        min-width: 78px;
+        padding: 10px 10px;
+      }
+      .img-sticker-left {
+        width: 88px;
+        left: 2vw;
+        bottom: 5vw;
+      }
+      .img-sticker-right {
+        width: 62px;
+        right: 2vw;
+        top: 3vw;
+      }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="dolphin-bg"></canvas>
+<!-- Sticker ảnh 1 (dưới trái) -->
+  <!--<img
+    class="img-sticker-left"
+    src="/anh/anh2.jpg"
+  />
+  Sticker ảnh 2 (trên phải)
+  <img
+    class="img-sticker-right"
+    src="/anh/anh1.jpg" -->
+  />
+  <div class="container">
+    <span class="dolphin">😚😚😚</span>
+    <div class="text-tinh" id="slogan">
+      Ngân đồng ý làm bạn gái tuii nhaa~~
+      <!-- Hiệu ứng lấp lánh -->
+      <span class="sparkle" style="top:-18px; left:10%; font-size:1.13em;">✨</span>
+      <span class="sparkle" style="top:-12px; left:78%; font-size:1em; animation-delay:0.3s;">✧</span>
+      <span class="sparkle" style="bottom:3px; left:55%; font-size:0.9em; animation-delay:0.7s;">✨</span>
+      <span class="sparkle" style="bottom:-10px; left:17%; font-size:1.18em; animation-delay:0.5s;">✦</span>
+    </div>
+    <div class="buttons-row" id="buttonsRow">
+      <button class="btn btn-yes" id="btnYes">
+        Đồng ý
+        <span class="hearts-float" id="heartsFloat"></span>
+      </button>
+      <button class="btn btn-no" id="btnNo">Không</button>
+    </div>
+  </div>
+  <script>
+    // HIỆU ỨNG CÁ HEO BAY LÊN
+    const canvas = document.getElementById('dolphin-bg');
+    const ctx = canvas.getContext('2d');
+    let width = window.innerWidth, height = window.innerHeight;
+    function resizeCanvas() {
+      width = window.innerWidth; height = window.innerHeight;
+      canvas.width = width; canvas.height = height;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    // Cá heo bay nền
+    const dolphinEmoji = "🐬";
+    function randomDolphin() {
+      return {
+        x: Math.random() * width,
+        y: height + 30 + Math.random() * 60,
+        size: 28 + Math.random() * 28,
+        speed: 1.3 + Math.random() * 1.7,
+        alpha: 0.85 + Math.random() * 0.15,
+        swing: Math.random()*Math.PI*2,
+        sway: (Math.random()-0.5)*1.9
+      }
+    }
+    let dolphins = [];
+    for(let i=0;i<16;i++) dolphins.push(randomDolphin());
+
+    function drawDolphinEmoji(x, y, size, alpha, swing) {
+      ctx.save();
+      ctx.globalAlpha = alpha;
+      ctx.font = `bold ${size}px serif`;
+      ctx.translate(x + Math.sin(swing)*10, y);
+      ctx.rotate(Math.sin(swing)*0.2);
+      ctx.fillText(dolphinEmoji, 0, 0);
+      ctx.restore();
+    }
+    function animate() {
+      ctx.clearRect(0,0,width,height);
+      for(let d of dolphins){
+        drawDolphinEmoji(d.x, d.y, d.size, d.alpha, d.swing);
+        d.y -= d.speed;
+        d.x += d.sway * 0.3;
+        d.swing += 0.03;
+        if(d.y < -40 || d.x < -60 || d.x > width+60){
+          Object.assign(d, randomDolphin());
+          d.y = height + 30;
+        }
+      }
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    // Nút "Không" chỉ di chuyển khi hover, mặc định luôn thẳng hàng với "Đồng ý"
+    const btnNo = document.getElementById('btnNo');
+    const btnYes = document.getElementById('btnYes');
+    let noFontSize = 1.2;
+    let yesScale = 1.2;
+    let isNoMoving = false;
+
+    function resetButtonsRow() {
+      btnYes.style.position = "relative";
+      btnYes.style.left = "0";
+      btnYes.style.top = "0";
+      btnYes.style.transform = `scale(${yesScale})`;
+      btnNo.style.position = "relative";
+      btnNo.style.left = "0";
+      btnNo.style.top = "0";
+      btnNo.style.transform = `scale(${noFontSize/1.2})`;
+    }
+    function getSloganRect() {
+      return document.getElementById('slogan').getBoundingClientRect();
+    }
+    function isOverlap(r1, r2) {
+      return !(r2.left > r1.right ||
+               r2.right < r1.left ||
+               r2.top > r1.bottom ||
+               r2.bottom < r1.top);
+    }
+    function moveNoButton() {
+      btnNo.style.position = "fixed";
+      const yesRect = btnYes.getBoundingClientRect();
+      const sloganRect = getSloganRect();
+      const noRect = btnNo.getBoundingClientRect();
+      let tries = 0;
+      let nx, ny, testRect;
+      do {
+        nx = Math.random() * (window.innerWidth - noRect.width - 10);
+        ny = Math.random() * (window.innerHeight - noRect.height - 10);
+        testRect = {left: nx, top: ny, right: nx + noRect.width, bottom: ny + noRect.height};
+        tries++;
+      } while (
+        tries < 100 &&
+        (isOverlap(testRect, yesRect) || isOverlap(testRect, sloganRect))
+      );
+      btnNo.style.left = nx + "px";
+      btnNo.style.top = ny + "px";
+    }
+    btnNo.addEventListener('mouseenter', function(e){
+      if(!isNoMoving) {
+        isNoMoving = true;
+        if(noFontSize > 0.6){
+          noFontSize -= 0.08;
+          btnNo.style.fontSize = noFontSize + "rem";
+          btnNo.style.transform = `scale(${noFontSize/1.2})`;
+        }
+        moveNoButton();
+        if(yesScale < 2.2) {
+          yesScale += 0.08;
+          btnYes.style.transform = `scale(${yesScale})`;
+          btnYes.style.fontSize = (1.2 + (yesScale-1.2)*0.8) + 'rem';
+        }
+      }
+    });
+    btnNo.addEventListener('mouseleave', function(){
+      isNoMoving = false;
+    });
+    btnNo.addEventListener('mousedown', (e) => {
+      e.preventDefault();
+    });
+    window.addEventListener('DOMContentLoaded', ()=>{
+      setTimeout(()=>{
+        resetButtonsRow();
+      }, 100);
+    });
+    window.addEventListener('resize', function(){
+      resetButtonsRow();
+    });
+    btnYes.addEventListener('click', () => {
+      window.location.href = "yeu.html";
+    });
+
+    // HIỆU ỨNG ICON BAY LÊN KHI HOVER "ĐỒNG Ý" - icon nhỏ, chỉ bay lên trên
+    const heartsFloat = document.getElementById('heartsFloat');
+    const icons = ["💗"];
+    btnYes.addEventListener('mouseenter', function(){
+      // Số icon bay lên mỗi lần hover
+      const n = 10 + Math.floor(Math.random()*3);
+      for(let i=0;i<n;i++){
+        setTimeout(()=>{
+          let span = document.createElement('span');
+          span.className = 'fly-ani';
+          span.innerText = icons[Math.floor(Math.random()*icons.length)];
+          // Vị trí xuất phát lệch quanh trung tâm nút (trong bán kính 36px)
+          const startX = (Math.random()-0.5)*60;
+          const startY = (Math.random()-0.2)*18;
+          span.style.left = startX+'px';
+          span.style.top = startY+'px';
+          // Đích đến: bay lên trên, lệch ngang nhẹ
+          const endX = startX + (Math.random()-0.5)*25;
+          const endY = startY - (80 + Math.random()*50);
+          // Kích thước nhỏ xíu
+          span.style.fontSize = (0.82 + Math.random()*0.42) + 'em';
+          // Độ mờ khác nhau cho tự nhiên
+          span.style.opacity = (0.86 + Math.random()*0.13);
+          // Tạo keyframes động riêng cho mỗi icon
+          const aniName = `flyUp${Date.now()}${Math.floor(Math.random()*99999)}`;
+          let keyframe = `@keyframes ${aniName} {
+            0% {transform: scale(0.7) translate(0,0) rotate(-8deg); opacity:1;}
+            70% {opacity:1;}
+            90% {transform: scale(1.13) translate(${endX-startX}px,${endY-startY}px) rotate(10deg); opacity:0.93;}
+            100% {transform: scale(1.07) translate(${endX-startX}px,${endY-startY}px) rotate(-8deg); opacity:0;}
+          }`;
+          let style = document.createElement('style');
+          style.innerHTML = keyframe;
+          style.id = aniName;
+          document.head.appendChild(style);
+          span.style.animation = `${aniName} 1.15s cubic-bezier(.67,1.1,.53,1.33) forwards`;
+          heartsFloat.appendChild(span);
+          setTimeout(()=>{
+            span.remove();
+            style.remove();
+          }, 1300);
+        }, i*55 + Math.random()*30);
+      }
+    });
+  </script>
+</body>
+</html>

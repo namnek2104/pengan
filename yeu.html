@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Pé Ngân nu nốc</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+    html, body {
+      margin: 0; padding: 0;
+      width: 100vw; height: 100vh;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #ffd6fa 0%, #d1eaff 100%);
+      overflow: hidden;
+    }
+    .center-box {
+      position: absolute;
+      left: 50%; top: 50%;
+      transform: translate(-50%,-50%);
+      background: rgba(255,255,255,0.88);
+      border-radius: 32px;
+      box-shadow: 0 8px 40px #fbc2eb88;
+      padding: 38px 18px 48px 18px;
+      text-align: center;
+      max-width: 410px;
+      z-index: 2;
+    }
+    .main-love {
+      font-family: 'Pacifico', cursive, sans-serif;
+      font-size: 2.4rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      background: linear-gradient(90deg, #f43f5e 20%, #8b51f8 60%, #38bdf8 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      text-fill-color: transparent;
+      text-shadow: 0 0 14px hsla(240, 97%, 60%, 0.533), 0 1px 0 #279eff;
+      margin-bottom: 20px;
+      margin-top: 8px;
+      animation: sloganMove 1.8s infinite alternate;
+      position: relative;
+      display: inline-block;
+    }
+    @keyframes sloganMove {
+      0% {transform: scale(1) rotate(-2deg);}
+      100% {transform: scale(1.04) rotate(2deg);}
+    }
+    .sparkle {
+      position: absolute;
+      color: #fff;
+      font-size: 1.1em;
+      opacity: 0.85;
+      animation: sparkle 1.2s linear infinite;
+      text-shadow: 0 0 10px #fde68a, 0 0 18px #fca5a5;
+      pointer-events: none;
+    }
+    @keyframes sparkle {
+      0% { opacity: 0.8; transform: scale(0.9);}
+      45% { opacity: 1; transform: scale(1.22);}
+      100% { opacity: 0.7; transform: scale(0.9);}
+    }
+    .sub-msg {
+      font-size: 1.15rem;
+      color: #f43f5e;
+      background: rgba(255,255,255,0.7);
+      border-radius: 15px;
+      display: inline-block;
+      padding: 9px 22px 7px 22px;
+      margin-top: 18px;
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+      animation: sloganMove 2.1s infinite alternate-reverse;
+    }
+    .date-love {
+      font-size: 1.03rem;
+      color: #64748b;
+      margin-top: 10px;
+      margin-bottom: 0;
+      font-style: italic;
+      letter-spacing: 1.3px;
+    }
+    .img-cute {
+      width: 120px;
+      margin-top: 8px;
+      margin-bottom: -12px;
+      filter: drop-shadow(0 6px 14px #fbbf2440);
+      animation: sticker-bounce 2.3s infinite alternate;
+      border-radius: 18px;
+      background:rgba(255,255,255,0.12);
+    }
+    @keyframes sticker-bounce {
+      0% {transform: scale(1) rotate(-5deg);}
+      100% {transform: scale(1.08) rotate(9deg);}
+    }
+    /* Tim bay */
+    .heart-float {
+      position: fixed;
+      left: 50%; top: 65%;
+      pointer-events: none;
+      z-index: 30;
+      width: 0; height: 0;
+    }
+    .fly-ani {
+      position: absolute;
+      left: 0; top: 0;
+      pointer-events: none;
+      opacity: 0.93;
+      user-select: none;
+      filter: drop-shadow(0 2px 7px #fbbf24cc);
+    }
+    /* Pháo hoa */
+    .firework {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      left: 50%; top: 50%;
+      width: 8px; height: 8px;
+    }
+    .fire-dot {
+      position: absolute;
+      border-radius: 50%;
+      width: 8px; height: 8px;
+      opacity: 0.95;
+    }
+    @media (max-width: 600px) {
+      .center-box {max-width:99vw; padding: 12px 2vw 26px 2vw;}
+      .main-love {font-size: 1.25rem; padding: 0 2vw;}
+      .img-cute {width: 78px;}
+    }
+  </style>
+</head>
+<body>
+  <div class="center-box">
+    <img class="img-cute" src="/anh/anh3.jpg"/>
+    <div class="main-love">
+      Thoii ngủ ii pà^^
+      <span class="sparkle" style="top:-12px; left:10%; font-size:1.13em;">✨</span>
+      <span class="sparkle" style="top:-17px; left:78%; font-size:1em; animation-delay:0.3s;">✧</span>
+      <span class="sparkle" style="bottom:-7px; left:55%; font-size:0.9em; animation-delay:0.7s;">✨</span>
+      <span class="sparkle" style="bottom:-12px; left:17%; font-size:1.18em; animation-delay:0.5s;">✦</span>
+    </div>
+    <div class="sub-msg">
+      Iuu Ngân nhìuu🫶
+    </div>
+    <div class="date-love">
+      Ngại ghê á👉👈
+    </div>
+  </div>
+  <div class="heart-float" id="heartFloat"></div>
+  <script>
+    // Tim bay mỗi khi load trang
+    const heartFloat = document.getElementById('heartFloat');
+    const icons = ["💖","💗","💓","💞","💕"];
+    function createHeart() {
+      let span = document.createElement('span');
+      span.className = 'fly-ani';
+      span.innerText = icons[Math.floor(Math.random()*icons.length)];
+      const startX = (Math.random()-0.5)*140;
+      const startY = (Math.random()-0.1)*12;
+      span.style.left = startX+'px';
+      span.style.top = startY+'px';
+      const endX = startX + (Math.random()-0.5)*80;
+      const endY = startY - (160 + Math.random()*90);
+      span.style.fontSize = (1.12 + Math.random()*0.42) + 'em';
+      span.style.opacity = (0.92 + Math.random()*0.07);
+      const aniName = `flyUp${Date.now()}${Math.floor(Math.random()*99999)}`;
+      let keyframe = `@keyframes ${aniName} {
+        0% {transform: scale(0.8) translate(0,0) rotate(-8deg); opacity:1;}
+        80% {opacity:1;}
+        90% {transform: scale(1.18) translate(${endX-startX}px,${endY-startY}px) rotate(10deg); opacity:0.93;}
+        100% {transform: scale(1.14) translate(${endX-startX}px,${endY-startY}px) rotate(-8deg); opacity:0;}
+      }`;
+      let style = document.createElement('style');
+      style.innerHTML = keyframe;
+      style.id = aniName;
+      document.head.appendChild(style);
+      span.style.animation = `${aniName} 1.7s cubic-bezier(.67,1.1,.53,1.33) forwards`;
+      heartFloat.appendChild(span);
+      setTimeout(()=>{
+        span.remove();
+        style.remove();
+      }, 1900);
+    }
+    for(let i=0;i<26;i++){
+      setTimeout(createHeart, i*140+Math.random()*40);
+    }
+    // Pháo hoa
+    function createFirework() {
+      const colors = ['#f43f5e','#fbbf24','#38bdf8','#f472b6','#a3e635','#f59e42','#fff'];
+      const fw = document.createElement('div');
+      fw.className = 'firework';
+      fw.style.left = (20+Math.random()*60)+'vw';
+      fw.style.top = (30+Math.random()*30)+'vh';
+      for(let i=0;i<18;i++){
+        const dot = document.createElement('div');
+        dot.className = 'fire-dot';
+        const angle = (i/18)*Math.PI*2;
+        const distance = 60+Math.random()*45;
+        dot.style.background = colors[Math.floor(Math.random()*colors.length)];
+        dot.style.left = '0px';
+        dot.style.top = '0px';
+        dot.style.width = dot.style.height = (8+Math.random()*7)+'px';
+        fw.appendChild(dot);
+        setTimeout(()=>{
+          dot.style.transition = 'all 0.8s cubic-bezier(.3,1.5,.6,1.01)';
+          dot.style.left = Math.cos(angle)*distance+'px';
+          dot.style.top = Math.sin(angle)*distance+'px';
+          dot.style.opacity = 0;
+        }, 80);
+      }
+      document.body.appendChild(fw);
+      setTimeout(()=>{fw.remove();}, 1400);
+    }
+    setTimeout(createFirework, 700);
+    setTimeout(createFirework, 1400);
+    setTimeout(createFirework, 2200);
+    setTimeout(createFirework, 3500);
+  </script>
+</body>
+</html>
